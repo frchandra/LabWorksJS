@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:4.2
+    container_name: labworks-mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./.docker/.dbdata:/data/db:Z
+    networks:
+      - labworks-network
+
+networks:
+  labworks-network:
+    driver: bridge

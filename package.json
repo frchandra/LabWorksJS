@@ -1,0 +1,26 @@
+{
+  "name": "labworksjs",
+  "version": "1.0.0",
+  "description": "An application for managing, scheduling, and conducting lab works on DTETI FT Gadjah Mada University",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Lab",
+    "Works",
+    "rest",
+    "API",
+    "express",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "frchandra",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1",
+    "nodemon": "^2.0.20"
+  }
+}
