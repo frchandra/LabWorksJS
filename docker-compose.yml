@@ -1,15 +1,22 @@
-version: '3'
+version: "3.5"
 
 services:
   mongodb:
-    image: mongo:4.2
-    container_name: labworks-mongodb
+    build:
+      context: ./.docker/mongo
+      dockerfile: Dockerfile
+    image: labworks-mongo4.2
+    expose:
+      - 27017
     ports:
-      - '27017:27017'
+      - 27017:27017
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all" ]
+    container_name: labworks-mongodb
     volumes:
       - ./.docker/.dbdata:/data/db:Z
     networks:
       - labworks-network
+
 
 networks:
   labworks-network:
