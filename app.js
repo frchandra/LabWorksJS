@@ -8,10 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 const db = require('./models/');
-db.mongoose.connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(()=>{
+db.mongoose.connect(db.url).then(()=>{
     console.log("Database connected");
 }).catch((e)=>{
    console.log(`connection failed`, e);
