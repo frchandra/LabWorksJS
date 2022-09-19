@@ -9,7 +9,7 @@ const Module = require('../models/Module');
 exports.findAll = async (req, res, next) => {
     try{
         const requestedModules = await Module.find();
-        res.status(200).json({success: true, data: requestedModules});
+        res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
     }catch (e) {
         res.status(400).json({success: false});
     }
@@ -23,6 +23,9 @@ exports.findAll = async (req, res, next) => {
 exports.findOne = async (req, res, next) => {
     try{
         const requestedModule = await Module.findById(req.params.id);
+        if(!requestedModule){
+            return res.status(400).json({success: false});
+        }
         res.status(200).json({success: true, data: requestedModule});
     }catch (e) {
         res.status(400).json({success: false});
@@ -49,46 +52,35 @@ exports.create = async (req, res, next) => {
 * @route        PUT /api/v1/module/:id
 * @access       private
 * */
-exports.update = (req, res, next) => {
-    const id = req.params.id;
-    Module.findByIdAndUpdate(id, req.body)
-        .then((result) =>{
-            if (!result){
-                res.status(404).send({
-                    message: "Modules not found"
-                });
-            }
-            res.send({
-                message: "Modules was updated"
-            });
-        }).catch((e)=>{
-        res.status(409).send({
-            message: e.message || "some error while updating data"
+exports.update = async (req, res, next) => {
+    try{
+        const requestedModule = await Module.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
         });
-    })
-}
+        if(!requestedModule){
+            return res.status(400).json({success: false});
+        }
+        res.status(200).json({success: true, data: requestedModule});
+    }catch (e) {
+        res.status(400).json({success: false});
+    }
 
+}
 
 /*
 * @description  delete a lab modules data
 * @route        DELETE /api/v1/module/:id
 * @access       private
 * */
-exports.delete = (req, res, next) => {
-    const id = req.params.id;
-    Module.findByIdAndRemove(id)
-        .then((result)=>{
-            if (!result){
-                res.status(404).send({
-                    message: "Modules not found"
-                });
-            }
-            res.send({
-                message: "Modules was deleted"
-            });
-        }).catch((e)=>{
-        res.status(409).send({
-            message: e.message || "some error while deleting data"
-        });
-    })
+exports.delete = async (req, res, next) => {
+    try{
+        const requestedModule = await Module.findByIdAndDelete(req.params.id);
+        if(!requestedModule){
+            return res.status(400).json({success: false});
+        }
+        res.status(200).json({success: true, data: {}});
+    }catch (e) {
+        res.status(400).json({success: false});
+    }
 }
