@@ -1,0 +1,44 @@
+[
+  {
+    "_id": {"$oid": "632565e20000000000c1a7c2"},
+    "title": "Numerical Method - 1",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-1",
+    "dateEnd": "2020-1-14",
+    "quota": 10,
+    "studentNum": 4,
+    "students": ["ade", "budi", "cahyo"],
+    "timestamp": {"$timestamp": {"t": 1663395298, "i": 1}}
+  },
+  {
+    "_id": {"$oid": "63256bc38f0065ea8c3057a9"},
+    "title": "Numerical Method - 2",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 2,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": "09:00",
+    "timeStart": "07:00",
+    "dateStart": "2020-1-2",
+    "dateEnd": "2020-1-15",
+    "quota": 10,
+    "studentNum": 4,
+    "students": ["dandy", "eko", "farhan"],
+    "timestamp": {"$timestamp": {"t": 1663395300, "i": 1}}
+  }
+]

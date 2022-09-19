@@ -4,7 +4,8 @@
   "description": "An application for managing, scheduling, and conducting lab works on DTETI FT Gadjah Mada University",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "Lab",
@@ -19,8 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "mongoose": "^6.6.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   }
 }
