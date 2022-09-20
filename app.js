@@ -2,6 +2,7 @@ const express  = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const connectToDB = require('./config/dbConf');
+const errorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware');
 const cors = require('cors');
 
 /*
@@ -43,19 +44,10 @@ if(process.env.NODE_ENV === 'development'){
 app.use('/api/v1/modules', ModuleRoute);
 // app.use('/', HomeRoutes);
 
-
-
-// const db = require('./models/');
-// db.mongoose.connect(db.url).then(()=>{
-//     console.log("Database connected");
-// }).catch((e)=>{
-//    console.log(`connection failed`, e);
-//    process.exit();
-// });
-
-// require("./routes/homeRoute");
-// require("./routes/moduleRoute")(app);
-
+/*
+* Using error handler middleware
+* */
+app.use(errorHandlerMiddleware);
 
 const server = app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV} mode on http://localhost:${PORT}`);

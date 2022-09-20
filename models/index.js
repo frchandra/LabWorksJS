@@ -1,3 +1,4 @@
+/*
 const dbConf = require('../config/dbConf');
 const mongoose = require('mongoose');
 
@@ -8,4 +9,4 @@ db.mongoose = mongoose;
 db.url = dbConf.url;
 db.modules = require('./Module')(mongoose);
 
-module.exports = db;
+module.exports = db;*/
