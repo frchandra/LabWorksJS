@@ -11,7 +11,7 @@ exports.findAll = async (req, res, next) => {
         const requestedModules = await Module.find();
         res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 }
 
@@ -28,7 +28,7 @@ exports.findOne = async (req, res, next) => {
         }
         res.status(200).json({success: true, data: requestedModule});
     }catch (e) {
-        next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
+        next(e);
     }
 }
 
@@ -42,7 +42,7 @@ exports.create = async (req, res, next) => {
         const createdModule  = await Module.create(req.body);
         res.status(201).json({success: true, data: createdModule});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 
 }
@@ -59,11 +59,11 @@ exports.update = async (req, res, next) => {
             runValidators: true
         });
         if(!requestedModule){
-            return res.status(400).json({success: false});
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
         }
         res.status(200).json({success: true, data: requestedModule});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 
 }
@@ -77,10 +77,10 @@ exports.delete = async (req, res, next) => {
     try{
         const requestedModule = await Module.findByIdAndDelete(req.params.id);
         if(!requestedModule){
-            return res.status(400).json({success: false});
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
         }
         res.status(200).json({success: true, data: {}});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 }
