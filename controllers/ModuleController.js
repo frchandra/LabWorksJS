@@ -7,13 +7,56 @@ const ErrorResponse = require("../utils/ErrorResponse");
 * @access       public
 * */
 exports.findAll = async (req, res, next) => {
-    req.query.title.regex = '.*' + req.query.title.regex + '.*';
-    req.query.title['$options'] = "i";
+    /*
+    * if title is requested
+    * */
+    if("title" in req.query){
+        req.query.title.regex = '.*' + req.query.title.regex + '.*';
+        /*
+        * adding option "i" for ignoring case sensitive
+        * */
+        req.query.title['$options'] = "i";
+    }
+
     let query;
-    let queryStr = JSON.stringify(req.query);
+    /*
+    * copying request query from url
+    * */
+    const  reqQuery = { ...req.query};
+
+    /*
+    * Fields to exclude, (url sanitation)
+    * */
+    const removeFields = ['select'];
+
+    //todo: heck
+    /*
+    * loop over removeFields then deleting them from reqQuery
+    * */
+    removeFields.forEach(params => delete reqQuery[params]);
+
+    /*
+    * modified url query: inserting "$" to "regex" ("regex" => "$regex") field so the database could read the query
+    * */
+    let queryStr = JSON.stringify(reqQuery);
     queryStr = queryStr.replace(/\b(regex)\b/, match => `$${match}`);
+
+    /*
+    * defining query
+    *  */
     query = Module.find(JSON.parse(queryStr));
-    console.log(queryStr);
+
+    /*
+    * select fields
+    * */
+    if(req.query.select){
+        const fields = req.query.select.split(",").join(' ');
+        query = query.select(fields);
+    }
+
+    /*
+    * execute the query
+    * */
     try{
         const requestedModules = await query;
         res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
