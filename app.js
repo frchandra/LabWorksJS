@@ -5,6 +5,8 @@ const connectToDB = require('./config/dbConf');
 const errorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware');
 const cors = require('cors');
 
+
+//todo: find module by title, filter module by availability, sort and group modules by name and batch
 /*
 * Load the env variables
 * */

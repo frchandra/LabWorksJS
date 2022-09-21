@@ -7,8 +7,15 @@ const ErrorResponse = require("../utils/ErrorResponse");
 * @access       public
 * */
 exports.findAll = async (req, res, next) => {
+    req.query.title.regex = '.*' + req.query.title.regex + '.*';
+    req.query.title['$options'] = "i";
+    let query;
+    let queryStr = JSON.stringify(req.query);
+    queryStr = queryStr.replace(/\b(regex)\b/, match => `$${match}`);
+    query = Module.find(JSON.parse(queryStr));
+    console.log(queryStr);
     try{
-        const requestedModules = await Module.find();
+        const requestedModules = await query;
         res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
     }catch (e) {
         next(e);

@@ -10,7 +10,7 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     * Mongoose bad ObjedtId
     * */
     if( err.name == "CastError"){
-        const message = `Bootcamp not found with id of ${err.value}`;
+        const message = `Modules not found with id of ${err.value}`;
         error = new ErrorResponse(message, 404)
     }
 
