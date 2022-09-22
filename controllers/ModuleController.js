@@ -27,7 +27,7 @@ exports.findAll = async (req, res, next) => {
     /*
     * Fields to exclude, (url sanitation)
     * */
-    const removeFields = ['select'];
+    const removeFields = ['select', 'sort', 'page', 'perPage'];
 
     //todo: heck
     /*
@@ -51,15 +51,57 @@ exports.findAll = async (req, res, next) => {
     * */
     if(req.query.select){
         const fields = req.query.select.split(",").join(' ');
+        /*
+        * building up the query for select operation
+        * */
         query = query.select(fields);
     }
+
+    //todo(done): doubly select
+    /*
+    * sort the data
+    * */
+    if(req.query.sort){
+        const sortBy = req.query.sort.split(',').join(' ');
+        /*
+        * building up the query for sort operation
+        * */
+        query = query.sort(sortBy);
+    } else {
+        query = query.sort({'dateStart': 1, 'timeStart.hours': 1});
+    }
+
+    /*
+    * pagination
+    * */
+    const page = parseInt(req.query.page, 10) || 1;
+    const modulesPerPage = parseInt(req.query.perPage, 10) || 3;
+    const startIndex = (page - 1) * modulesPerPage;
+    const endIndex = page * modulesPerPage;
+    const totalModules = await Module.countDocuments();
+
+    query = query.skip(startIndex).limit(modulesPerPage);
 
     /*
     * execute the query
     * */
     try{
         const requestedModules = await query;
-        res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
+        /*
+        * pagination result
+        * */
+        const pagination = {};
+        pagination.current = page;
+        pagination.modulesPerPage = modulesPerPage;
+        if(endIndex < totalModules){
+            // pagination.next = {page: page + 1, modulesPerPage};
+            pagination.next = page + 1;
+        }
+        if(startIndex > 0){
+            pagination.prev = page - 1;
+        }
+
+        res.status(200).json({success: true, count: requestedModules.length, pagination: pagination, data: requestedModules});
     }catch (e) {
         next(e);
     }

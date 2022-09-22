@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 //todo: set tipe data number supaya hanya menerima integer
 //todo: integrasi dengan entity students?
-//todo: kasih default error messages (done)
-//todo: fix number min max (done)
+//todo(done): kasih default error messages
+//todo(done): fix number min max
 const ModuleSchema = new mongoose.Schema({
     title: {type: String, required: [true, "please add a title"], maxLength: [50, "title cannot be more than 50 characters"], index:true},
     acadYearStart: {},
