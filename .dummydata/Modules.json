@@ -17,8 +17,8 @@
     },
     "dateStart": "2020-1-1",
     "dateEnd": "2020-1-14",
-    "quota": 10,
-    "studentNum": 3,
+    "quota": 3,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -40,7 +40,7 @@
     "dateStart": "2020-1-2",
     "dateEnd": "2020-1-15",
     "quota": 10,
-    "studentNum": 3,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -62,7 +62,7 @@
     "dateStart": "2020-1-3",
     "dateEnd": "2020-1-16",
     "quota": 10,
-    "studentNum": 4,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -84,7 +84,7 @@
     "dateStart": "2020-1-4",
     "dateEnd": "2020-1-17",
     "quota": 10,
-    "studentNum": 4,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -106,7 +106,7 @@
     "dateStart": "2020-1-5",
     "dateEnd": "2020-1-18",
     "quota": 10,
-    "studentNum": 4,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -128,7 +128,7 @@
     "dateStart": "2020-1-6",
     "dateEnd": "2020-1-19",
     "quota": 10,
-    "studentNum": 4,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
   {
@@ -150,7 +150,7 @@
     "dateStart": "2020-1-7",
     "dateEnd": "2020-1-20",
     "quota": 10,
-    "studentNum": 4,
+    "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   }
 ]

@@ -6,7 +6,7 @@ const errorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware');
 const cors = require('cors');
 
 
-//todo: find module by like title, filter module by availability, sort and group modules by name and batch, pagination
+//todo: find module by like title(done), filter module by availability(done), sort and group modules by name and batch(done), pagination(done),
 /*
 * Load the env variables
 * */
