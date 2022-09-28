@@ -1,0 +1,13 @@
+header{
+    background-color: rgb(116, 116, 116);
+    height: 20vh;
+    width: 100%;
+}
+
+header h1{
+    font-weight: bold;
+}
+
+body{
+    background-color: antiquewhite;
+}
