@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    background-color: rgb(0, 42, 105);
+    height: 18vh;
+    width: 100%;
+    padding: 0px;
+    margin: 0%;
+}
+
+.logo-header{
+    width: 25%;
+}
+
+header ul li{
+    display: inline-block;
+    padding: 10px;
+}
+
+header h1{
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header h2{
+    text-align:center;
+    padding-top: 0px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+}
