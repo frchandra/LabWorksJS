@@ -13,7 +13,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         const message = `Modules not found with id of ${err.value}`;
         error = new ErrorResponse(message, 404)
     }
-
     /*
     * Mongoose duplicate keys
     * */
@@ -21,7 +20,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         const message = "Detecting duplication record value was inserted";
         error = new ErrorResponse(message, 400);
     }
-
     /*
     * Mongoose validation error
     * */

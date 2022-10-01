@@ -34,20 +34,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 /*
-* Development logging middleware
+* Load logging middleware during dev phase
 * */
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 }
 
 /*
-* Mount the routers to the express object
+* Mount the base routers to the express object
 * */
 app.use('/api/v1/modules', ModuleRoute);
 // app.use('/', HomeRoutes);
 
 /*
-* Using error handler middleware
+* Load the error handler middleware
 * */
 app.use(errorHandlerMiddleware);
 

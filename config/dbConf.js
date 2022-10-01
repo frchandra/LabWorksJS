@@ -8,7 +8,4 @@ const connectToDB = async () => {
 module.exports = connectToDB;
 
 
-// module.exports = {
-//     url: "mongodb://admin2:admin2@localhost:27017/labworksjs"
-// }
 

@@ -9,7 +9,6 @@ const ErrorResponse = require("../utils/ErrorResponse");
 exports.findAll = async (req, res, next) => {
     res.status(200).json(res.RequestParamMiddleware);
 }
-
 /*
 * @description  get one lab modules data by id
 * @route        GET /api/v1/module/:id
@@ -26,7 +25,6 @@ exports.findOne = async (req, res, next) => {
         next(e);
     }
 }
-
 /*
 * @description  create a lab modules data
 * @route        POST /api/v1/module
@@ -41,7 +39,6 @@ exports.create = async (req, res, next) => {
     }
 
 }
-
 /*
 * @description  update a lab modules data
 * @route        PUT /api/v1/module/:id
@@ -62,7 +59,6 @@ exports.update = async (req, res, next) => {
     }
 
 }
-
 /*
 * @description  delete a lab modules data
 * @route        DELETE /api/v1/module/:id

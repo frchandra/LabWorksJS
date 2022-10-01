@@ -66,7 +66,7 @@
     "students": ["ade", "budi", "cahyo"]
   },
   {
-    "title": "Numerical Methods - 4",
+    "title": "RLC",
     "acadYearEnd": 2021,
     "acadYearStart": 2020,
     "batch": 1,
@@ -83,7 +83,7 @@
     },
     "dateStart": "2020-1-4",
     "dateEnd": "2020-1-17",
-    "quota": 10,
+    "quota": 3,
     "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   },
@@ -132,7 +132,7 @@
     "students": ["ade", "budi", "cahyo"]
   },
   {
-    "title": "Signal and System - 3",
+    "title": "Python - 1",
     "acadYearEnd": 2021,
     "acadYearStart": 2020,
     "batch": 1,
@@ -149,7 +149,7 @@
     },
     "dateStart": "2020-1-7",
     "dateEnd": "2020-1-20",
-    "quota": 10,
+    "quota": 3,
     "studentsNum": 3,
     "students": ["ade", "budi", "cahyo"]
   }

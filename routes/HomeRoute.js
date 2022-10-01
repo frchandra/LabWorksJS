@@ -1,3 +1,6 @@
+/*
+* Route for redirecting user to home
+* */
 module.exports = (app)=>{
 
     const router = require('express').Router();
