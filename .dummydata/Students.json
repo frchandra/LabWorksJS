@@ -1,0 +1,12 @@
+[
+  {
+    "name": "student a",
+    "studentId": "20/TK/001",
+    "batch": "2020",
+    "email": "studenta@mail.com",
+    "password": "password",
+    "phone": "123",
+    "labNum": 0,
+    "lab": ["python"]
+  }
+]
