@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const StudentSchema = new mongoose.Schema({
         name: {type: String, required: [true, "please add a title"], maxLength: [50, "title cannot be more than 50 characters"], index:true},
@@ -30,5 +31,12 @@ StudentSchema.index({
     },
     {unique: true});
 
+/*
+* encrypt password
+* */
+StudentSchema.pre('save', async function(next){
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+})
 
 module.exports = mongoose.model("Student", StudentSchema);

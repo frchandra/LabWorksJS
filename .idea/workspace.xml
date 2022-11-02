@@ -7,7 +7,9 @@
     <list default="true" id="20bb371d-3e32-43a4-9790-f4e6af6e3727" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,7 @@
       <workItem from="1664509049991" duration="11000" />
       <workItem from="1664516078176" duration="2597000" />
       <workItem from="1664863771128" duration="53000" />
-      <workItem from="1667382755669" duration="3011000" />
+      <workItem from="1667382755669" duration="7883000" />
     </task>
     <servers />
   </component>

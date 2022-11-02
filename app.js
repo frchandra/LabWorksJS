@@ -25,6 +25,7 @@ connectToDB();
 const HomeRoute = require("./routes/HomeRoute");
 const ModuleRoute = require("./routes/ModuleRoute");
 const StudentRoute = require("./routes/StudentRoute");
+const AuthRoute =  require('./routes/AuthRoute');
 const {home} = require("nodemon/lib/utils");
 
 /*
@@ -46,6 +47,7 @@ if(process.env.NODE_ENV === 'development'){
 * */
 app.use('/api/v1/modules', ModuleRoute);
 app.use('/api/v1/students', StudentRoute);
+app.use('/api/v1/auth', AuthRoute);
 // app.use('/', HomeRoutes);
 
 /*
