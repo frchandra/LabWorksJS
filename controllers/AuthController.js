@@ -7,9 +7,7 @@ const Student = require('../models/Student');
 // @route     POST /api/v1/auth/registers
 // @access    Public
 exports.register = asyncHandler(async (req, res, next) => {
-
     const { name, studentId, batch, email, password, phone, labNum, lab } = req.body;
-
     // Create student
     const student = await Student.create({
         name,
@@ -21,8 +19,10 @@ exports.register = asyncHandler(async (req, res, next) => {
         labNum,
         lab
     });
-    res.status(200).json({success:true});
-    // sendTokenResponse(student, 200, res);
+    /*
+    * create token
+    * */
+    sendTokenResponse(student, 200, res);
 });
 
 // @desc      Login student
@@ -49,7 +49,9 @@ exports.login = asyncHandler(async (req, res, next) => {
     if (!isMatch) {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
-
+    /*
+    * create token
+    * */
     sendTokenResponse(student, 200, res);
 });
 
@@ -227,7 +229,7 @@ exports.confirmEmail = asyncHandler(async (req, res, next) => {
     sendTokenResponse(student, 200, res);
 });
 
-// Get token from model, create cookie and send response
+//   from model, create cookie and send response
 const sendTokenResponse = (student, statusCode, res) => {
     // Create token
     const token = student.getSignedJwtToken();

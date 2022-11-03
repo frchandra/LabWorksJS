@@ -1,6 +1,7 @@
 const express = require('express');
 const expressRouter = express.Router();
 const studentController = require("../controllers/StudentController");
+const { protect } = require('../middleware/AuthMiddleware');
 /*
 * This is used for catching the query parameter on the URL string
 * */
@@ -13,8 +14,8 @@ const Student = require("../models/Student");
 * */
 expressRouter.get('/', RequestParamMiddleware(Student), studentController.findAll);
 expressRouter.get('/:id', studentController.findOne);
-expressRouter.post('/', studentController.create);
-expressRouter.put('/:id', studentController.update)
-expressRouter.delete('/:id', studentController.delete)
+expressRouter.post('/', protect, studentController.create);
+expressRouter.put('/:id', protect, studentController.update)
+expressRouter.delete('/:id', protect, studentController.delete)
 
 module.exports = expressRouter;
