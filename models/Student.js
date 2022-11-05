@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const {mongo} = require("mongoose");
 
 const StudentSchema = new mongoose.Schema({
         name: {type: String, required: [true, "please add a title"], maxLength: [50, "title cannot be more than 50 characters"], index:true},
@@ -20,7 +21,9 @@ const StudentSchema = new mongoose.Schema({
                 message   : '{VALUE} is not an integer value'
             }
         },
-        lab: {type: [String]},
+        lab: [{
+            type: String,
+        }],
     },
     {
         strict: false

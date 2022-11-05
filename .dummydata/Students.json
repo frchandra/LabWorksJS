@@ -7,6 +7,16 @@
     "password": "password",
     "phone": "123",
     "labNum": 0,
-    "lab": ["python"]
+    "lab": []
+  },
+  {
+    "name": "student b",
+    "studentId": "20/TK/002",
+    "batch": "2020",
+    "email": "studentb@mail.com",
+    "password": "password",
+    "phone": "123",
+    "labNum": 0,
+    "lab": []
   }
 ]

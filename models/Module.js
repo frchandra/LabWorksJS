@@ -98,7 +98,9 @@ const ModuleSchema = new mongoose.Schema({
             message   : '{VALUE} is not an integer value'
         }
     },
-    students: {type: [String]},
+    students: [{
+        type: String
+    }],
 },
 {
     strict: false
