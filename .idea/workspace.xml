@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20bb371d-3e32-43a4-9790-f4e6af6e3727" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dummydata/Modules.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dummydata/Modules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dummydata/Students.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dummydata/Students.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/ModuleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ModuleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/AuthMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/AuthMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Module.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/ModuleRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/ModuleRoute.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +36,6 @@
     <setting file="file://$PROJECT_DIR$/controllers/ModuleController.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/models/Module.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/models/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/routes/HomeRoute.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/routes/ModuleRoute.js" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -43,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/chandra/CodeBase/JS/devcamper-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/chandra/CodeBase/JS/express-ts-boilerplate&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.docker/mongo" />
@@ -81,6 +86,32 @@
       <workItem from="1663494236661" duration="1602000" />
       <workItem from="1663555690610" duration="2127000" />
       <workItem from="1663585314864" duration="15469000" />
+      <workItem from="1663651353687" duration="1027000" />
+      <workItem from="1663687534918" duration="5684000" />
+      <workItem from="1663732482966" duration="2341000" />
+      <workItem from="1663762193408" duration="9194000" />
+      <workItem from="1663817403836" duration="2139000" />
+      <workItem from="1663820298225" duration="1516000" />
+      <workItem from="1663825450899" duration="174000" />
+      <workItem from="1663825643807" duration="823000" />
+      <workItem from="1663826501128" duration="602000" />
+      <workItem from="1663836690275" duration="5590000" />
+      <workItem from="1663910319194" duration="1454000" />
+      <workItem from="1663950316939" duration="132000" />
+      <workItem from="1664082815123" duration="2538000" />
+      <workItem from="1664166136755" duration="1113000" />
+      <workItem from="1664187356513" duration="1824000" />
+      <workItem from="1664189561291" duration="673000" />
+      <workItem from="1664246261512" duration="3735000" />
+      <workItem from="1664333660617" duration="4104000" />
+      <workItem from="1664376619356" duration="4632000" />
+      <workItem from="1664509049991" duration="11000" />
+      <workItem from="1664516078176" duration="2597000" />
+      <workItem from="1664863771128" duration="53000" />
+      <workItem from="1667382755669" duration="11044000" />
+      <workItem from="1667466045428" duration="4941000" />
+      <workItem from="1667527305512" duration="9821000" />
+      <workItem from="1667619225796" duration="1108000" />
     </task>
     <servers />
   </component>

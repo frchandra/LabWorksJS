@@ -1,5 +1,7 @@
 const Module = require('../models/Module');
-
+const Student = require('../models/Student');
+const ErrorResponse = require("../utils/ErrorResponse");
+const asyncHandler = require('../middleware/AsyncHandlerMiddleware');
 
 /*
 * @description  get all lab modules data
@@ -7,14 +9,8 @@ const Module = require('../models/Module');
 * @access       public
 * */
 exports.findAll = async (req, res, next) => {
-    try{
-        const requestedModules = await Module.find();
-        res.status(200).json({success: true, count: requestedModules.length, data: requestedModules});
-    }catch (e) {
-        res.status(400).json({success: false});
-    }
+    res.status(200).json(res.RequestParamMiddleware);
 }
-
 /*
 * @description  get one lab modules data by id
 * @route        GET /api/v1/module/:id
@@ -24,14 +20,13 @@ exports.findOne = async (req, res, next) => {
     try{
         const requestedModule = await Module.findById(req.params.id);
         if(!requestedModule){
-            return res.status(400).json({success: false});
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
         }
         res.status(200).json({success: true, data: requestedModule});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 }
-
 /*
 * @description  create a lab modules data
 * @route        POST /api/v1/module
@@ -42,11 +37,10 @@ exports.create = async (req, res, next) => {
         const createdModule  = await Module.create(req.body);
         res.status(201).json({success: true, data: createdModule});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 
 }
-
 /*
 * @description  update a lab modules data
 * @route        PUT /api/v1/module/:id
@@ -59,15 +53,14 @@ exports.update = async (req, res, next) => {
             runValidators: true
         });
         if(!requestedModule){
-            return res.status(400).json({success: false});
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
         }
         res.status(200).json({success: true, data: requestedModule});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 
 }
-
 /*
 * @description  delete a lab modules data
 * @route        DELETE /api/v1/module/:id
@@ -77,10 +70,51 @@ exports.delete = async (req, res, next) => {
     try{
         const requestedModule = await Module.findByIdAndDelete(req.params.id);
         if(!requestedModule){
-            return res.status(400).json({success: false});
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
         }
         res.status(200).json({success: true, data: {}});
     }catch (e) {
-        res.status(400).json({success: false});
+        next(e);
     }
 }
+
+exports.addStudent = asyncHandler( async (req, res, next) => {
+    const student = req.student;
+    // try{
+        const module = await Module.findById(req.params.id);
+
+        const requestedModule =  Module.findOneAndUpdate({_id: req.params.id}, {$push: {students: student.name}, $inc:{studentsNum:1}}, {new: true},
+            function (error, success) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(success);
+                }
+            }
+        );
+
+
+       Student.findOneAndUpdate({_id: student._id}, {$push: {lab: module.title}, $inc:{labNum:1}},
+            function (error, success) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(success);
+                }
+            }
+        )
+        if(!requestedModule){
+            return next(new ErrorResponse(`Cannot find modules with id of ${req.params.id}`, 404));
+        }
+
+        res.status(200).json({success: true, data: module});
+    // }catch (e) {
+    //     next(e);
+    // }
+
+    // res.status(200).json({
+    //     success: true,
+    //     data: "bug",
+    // });
+}
+)

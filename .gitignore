@@ -1,4 +1,4 @@
-.idea/
+.idea/*
 node_modules/*
 .docker/.dbdata/*
 config/config.env

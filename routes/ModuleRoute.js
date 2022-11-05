@@ -2,27 +2,22 @@ const express = require('express');
 const expressRouter = express.Router();
 const moduleController = require("../controllers/ModuleController");
 
+const { protect, authorize} = require('../middleware/AuthMiddleware');
+/*
+* This is used for catching the query parameter on the URL string
+* */
+const RequestParamMiddleware = require("../middleware/RequestParamMiddleware");
+const Module = require("../models/Module");
 
-expressRouter.get('/', moduleController.findAll);
+
+/*
+* Basic CRUD functionality
+* */
+expressRouter.get('/', RequestParamMiddleware(Module), moduleController.findAll);
 expressRouter.get('/:id', moduleController.findOne);
-expressRouter.post('/', moduleController.create);
-expressRouter.put('/:id', moduleController.update)
-expressRouter.delete('/:id', moduleController.delete)
+expressRouter.post('/', protect, authorize('admin'), moduleController.create);
+expressRouter.put('/:id', protect, authorize('admin'), moduleController.update)
+expressRouter.delete('/:id', protect, authorize('admin'), moduleController.delete)
+expressRouter.put('/student/:id', protect, moduleController.addStudent)
 
 module.exports = expressRouter;
-
-
-
-// module.exports = (app)=>{
-//     const modules = require("../controllers/ModuleController");
-//     const router = require('express').Router();
-//
-//     router.get('/', modules.findAll);
-//     router.get('/:id', modules.findOne);
-//     router.post('/', modules.create);
-//     router.put('/:id', modules.update)
-//     router.delete('/:id', modules.delete)
-//
-//
-//     app.use('/api/modules', router);
-// }

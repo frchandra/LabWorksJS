@@ -1,7 +1,6 @@
 [
   {
-    "_id": {"$oid": "632565e20000000000c1a7c2"},
-    "title": "Numerical Method - 1",
+    "title": "Numerical Methods - 1",
     "acadYearEnd": 2021,
     "acadYearStart": 2020,
     "batch": 1,
@@ -19,26 +18,139 @@
     "dateStart": "2020-1-1",
     "dateEnd": "2020-1-14",
     "quota": 10,
-    "studentNum": 4,
-    "students": ["ade", "budi", "cahyo"],
-    "timestamp": {"$timestamp": {"t": 1663395298, "i": 1}}
+    "studentsNum": 0,
+    "students": []
   },
   {
-    "_id": {"$oid": "63256bc38f0065ea8c3057a9"},
-    "title": "Numerical Method - 2",
+    "title": "Numerical Methods - 2",
     "acadYearEnd": 2021,
     "acadYearStart": 2020,
     "batch": 1,
-    "day": 2,
+    "day": 1,
     "lab": "IF",
     "semester": 1,
-    "timeEnd": "09:00",
-    "timeStart": "07:00",
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
     "dateStart": "2020-1-2",
     "dateEnd": "2020-1-15",
     "quota": 10,
-    "studentNum": 4,
-    "students": ["dandy", "eko", "farhan"],
-    "timestamp": {"$timestamp": {"t": 1663395300, "i": 1}}
+    "studentsNum": 0,
+    "students": []
+  },
+  {
+    "title": "Numerical Methods - 3",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-3",
+    "dateEnd": "2020-1-16",
+    "quota": 10,
+    "studentsNum": 0,
+    "students": []
+  },
+  {
+    "title": "RLC",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-4",
+    "dateEnd": "2020-1-17",
+    "quota": 10,
+    "studentsNum": 0,
+    "students": []
+  },
+  {
+    "title": "Signal and System - 1",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-5",
+    "dateEnd": "2020-1-18",
+    "quota": 10,
+    "studentsNum": 0,
+    "students": []
+  },
+  {
+    "title": "Signal and System - 2",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-6",
+    "dateEnd": "2020-1-19",
+    "quota": 10,
+    "studentsNum": 0,
+    "students": []
+  },
+  {
+    "title": "Python - 1",
+    "acadYearEnd": 2021,
+    "acadYearStart": 2020,
+    "batch": 1,
+    "day": 1,
+    "lab": "IF",
+    "semester": 1,
+    "timeEnd": {
+      "hours": 9,
+      "minutes": 0
+    },
+    "timeStart": {
+      "hours": 7,
+      "minutes": 0
+    },
+    "dateStart": "2020-1-7",
+    "dateEnd": "2020-1-20",
+    "quota": 10,
+    "studentsNum": 0,
+    "students": []
   }
 ]

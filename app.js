@@ -1,9 +1,13 @@
 const express  = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 const connectToDB = require('./config/dbConf');
+const errorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware');
 const cors = require('cors');
 
+
+//todo: find module by like title(done), filter module by availability(done), sort and group modules by name and batch(done), pagination(done),
 /*
 * Load the env variables
 * */
@@ -21,6 +25,8 @@ connectToDB();
 * */
 const HomeRoute = require("./routes/HomeRoute");
 const ModuleRoute = require("./routes/ModuleRoute");
+const StudentRoute = require("./routes/StudentRoute");
+const AuthRoute =  require('./routes/AuthRoute');
 const {home} = require("nodemon/lib/utils");
 
 /*
@@ -29,33 +35,27 @@ const {home} = require("nodemon/lib/utils");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 /*
-* Development logging middleware
+* Load logging middleware during dev phase
 * */
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 }
 
 /*
-* Mount the routers to the express object
+* Mount the base routers to the express object
 * */
 app.use('/api/v1/modules', ModuleRoute);
+app.use('/api/v1/students', StudentRoute);
+app.use('/api/v1/auth', AuthRoute);
 // app.use('/', HomeRoutes);
 
-
-
-// const db = require('./models/');
-// db.mongoose.connect(db.url).then(()=>{
-//     console.log("Database connected");
-// }).catch((e)=>{
-//    console.log(`connection failed`, e);
-//    process.exit();
-// });
-
-// require("./routes/homeRoute");
-// require("./routes/moduleRoute")(app);
-
+/*
+* Load the error handler middleware
+* */
+app.use(errorHandlerMiddleware);
 
 const server = app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV} mode on http://localhost:${PORT}`);
