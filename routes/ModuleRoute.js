@@ -19,5 +19,6 @@ expressRouter.post('/', protect, authorize('admin'), moduleController.create);
 expressRouter.put('/:id', protect, authorize('admin'), moduleController.update)
 expressRouter.delete('/:id', protect, authorize('admin'), moduleController.delete)
 expressRouter.put('/student/:id', protect, moduleController.addStudent)
+expressRouter.delete('/student/:id', protect, moduleController.removeStudent)
 
 module.exports = expressRouter;

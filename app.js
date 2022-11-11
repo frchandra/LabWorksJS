@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const connectToDB = require('./config/dbConf');
 const errorHandlerMiddleware = require('./middleware/ErrorHandlerMiddleware');
 const cors = require('cors');
+const path = require('path');
 
 
 //todo: find module by like title(done), filter module by availability(done), sort and group modules by name and batch(done), pagination(done),
@@ -43,6 +44,9 @@ app.use(cookieParser());
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 }
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 /*
 * Mount the base routers to the express object

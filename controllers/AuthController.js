@@ -75,11 +75,26 @@ exports.logout = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.getMe = asyncHandler(async (req, res, next) => {
     // student is already available in req due to the protect middleware
-    const student = req.student;
+    const student = await Student.findById(req.student.id);
 
     res.status(200).json({
         success: true,
         data: student,
+    });
+});
+
+// @desc      log current  student out
+// @route     POST /api/v1/auth/logout
+// @access    Private
+exports.logout = asyncHandler(async (req, res, next) => {
+    res.cookie('token', 'none', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    });
+
+    res.status(200).json({
+        success: true,
+        data: {},
     });
 });
 
